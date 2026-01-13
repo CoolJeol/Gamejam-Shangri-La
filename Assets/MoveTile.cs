@@ -1,10 +1,25 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MoveTile : MonoBehaviour
+public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    private bool followMouse = false;
+    public LayerMask Groundlayer;
+    bool didHit;
 
-    private Vector3 mousePosition;
-    public float moveSpeed = 0.1f;
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        followMouse = true;
+        Debug.Log(name + "Game Object Click in Progress");
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        followMouse = false;
+        Debug.Log(name + "No longer being clicked");
+       
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,12 +30,15 @@ public class MoveTile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
-        {
-            Vector3 pos = Input.mousePosition;
-            pos.z = 4f;
-            transform.position = Camera.main.ScreenToWorldPoint(pos);
 
+        if (followMouse == true) { 
+        
+            Vector2 pos = Input.mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(pos);
+            Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, Groundlayer);
+            transform.position = hit.point;
+
+            
 
             //mousePosition = Input.mousePosition;
             //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
