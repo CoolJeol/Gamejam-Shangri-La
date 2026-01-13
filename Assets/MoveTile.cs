@@ -6,11 +6,16 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private bool followMouse = false;
     public LayerMask Groundlayer;
     bool didHit;
+    Vector3 CameraTarget;
+    public Transform Parent;
 
+    //obj pos - cam pos
     public void OnPointerDown(PointerEventData eventData)
     {
         followMouse = true;
         Debug.Log(name + "Game Object Click in Progress");
+        
+        
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -33,12 +38,17 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         if (followMouse == true) { 
         
+
             Vector2 pos = Input.mousePosition;
             Ray ray = Camera.main.ScreenPointToRay(pos);
             Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, Groundlayer);
-            transform.position = hit.point;
-
+            Parent.transform.position = hit.point;
+            CameraTarget = Parent.transform.position - Camera.main.transform.position;
+            CameraTarget.Normalize();
             
+            transform.position = Parent.transform.position - CameraTarget * 2f;
+
+
 
             //mousePosition = Input.mousePosition;
             //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
