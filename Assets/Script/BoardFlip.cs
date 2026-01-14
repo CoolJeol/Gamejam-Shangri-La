@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class BoardFlip : MonoBehaviour
 {
-    public List<Transform> Tiles;
+    public List<TilePosition> Tiles;
     private const float TIME = 0.1f;
 
     private void Awake()
@@ -47,10 +47,10 @@ public class BoardFlip : MonoBehaviour
         }
     }
 
-    void DoAnimation(Transform trans)
+    void DoAnimation(TilePosition tile)
     {
-        trans.LeanMoveLocalY(0.6f, TIME).setOnComplete(()=> ResetYPosition(trans));
-        trans.LeanRotateAround(new Vector3(1, 0, -1), 180f, TIME * 2f);
+        tile.transform.LeanMoveLocalY(0.6f, TIME).setOnComplete(()=> ResetYPosition(tile.transform));
+        tile.transform.LeanRotateAround(new Vector3(1, 0, -1), 180f, TIME * 2f);
     }
 
     void ResetYPosition(Transform trans)
