@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5b6c6729c252948902025520ca5c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  gameSceneName: 
+  gameSceneName: Jespers Scene
 --- !u!1 &595667211
 GameObject:
   m_ObjectHideFlags: 0
