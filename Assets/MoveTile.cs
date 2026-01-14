@@ -71,11 +71,19 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         tilePosition.tile = this;
         tileCondition = GetComponent<TileCondition>();
         mainCamera = Camera.main;
+        if (transform.childCount > 0)
+            transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void Init(BoardFlip boardFlip)
     {
         board = boardFlip;
+    }
+
+    public void EnableChild()
+    {
+        if (transform.childCount > 0)
+            transform.GetChild(0).gameObject.SetActive(true);
     }
 
     void Update()

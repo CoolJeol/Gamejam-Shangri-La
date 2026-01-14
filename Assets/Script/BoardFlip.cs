@@ -33,11 +33,14 @@ public class BoardFlip : MonoBehaviour
         }
     }
 
-    void Update()
+    public void Init()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        foreach (var tilePosition in Tiles)
         {
-            StartCoroutine(StartBoardFlip());
+            if (tilePosition.tile)
+            {
+                tilePosition.tile.EnableChild();
+            }
         }
     }
 
@@ -109,7 +112,7 @@ public class BoardFlip : MonoBehaviour
     IEnumerator BoardDone()
     {
         yield return new WaitForSeconds(0.5f);
-        // Play Done Sound
+        AudioManager.Instance.PlayBoardDoneSound();
         yield return new WaitForSeconds(2.5f);
         BoardManager.Instance.SwapBoards();
     }

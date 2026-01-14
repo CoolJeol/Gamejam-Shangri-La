@@ -37,4 +37,10 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = audioClips[2];
         audioSource.Play();
     }
+    
+    public void PlayBoardDoneSound()
+    {
+        audioSource.clip = audioClips[3];
+        audioSource.Play();
+    }
 }

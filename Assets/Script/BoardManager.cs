@@ -38,7 +38,9 @@ public class BoardManager : MonoBehaviour
         BoardFlyAway();
         yield return new WaitForSeconds(0.1f);
         ZoomCamera();
-        //Start Board
+        yield return new WaitForSeconds(0.7f);
+        StartCoroutine(boards[currentBoardIndex].StartBoardFlip());
+        boards[currentBoardIndex].Init();
     }
 
     private void Update()
@@ -85,6 +87,7 @@ public class BoardManager : MonoBehaviour
 
     public void SendBoardIn(Transform board)
     {
+        boards[currentBoardIndex].Init();
         board.position = boardStartPosition.position;
         board.LeanMove(Vector3.zero, 2).setEaseOutBounce()
             .setOnComplete(() => StartCoroutine(boards[currentBoardIndex].StartBoardFlip()));
