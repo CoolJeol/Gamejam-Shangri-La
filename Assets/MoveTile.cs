@@ -11,17 +11,24 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public Transform Parent;
     public int boardIndex;
     private BoardFlip board;
-    TilePosition tile;
+    public TilePosition tilePosition;
+    public TileCondition tileCondition;
 
+    Camera mainCamera;
+    
     //obj pos - cam pos
     public void OnPointerDown(PointerEventData eventData)
     {
         Parent.SetParent(null);
         followMouse = true;
-        if (tile)
+        if (tilePosition)
         {
-            tile.haveTile = false;
+            tilePosition.tile = null;
+            tilePosition = null;
         }
+
+        tileCondition.tileIsHappy = false;
+        board.UpdateConditions();
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -33,25 +40,32 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         foreach (var boardTile in board.Tiles)
         {
             var currentDistance = Vector3.Distance(boardTile.transform.position, Parent.transform.position);
-            if (currentDistance < closestDistance && currentDistance < 1f)
+            if (currentDistance < closestDistance && currentDistance < 0.45f)
             {
                 closestDistance = currentDistance;
                 closestTile = boardTile;
             }
         }
 
-        if (closestTile && !closestTile.haveTile)
+        if (closestTile && !closestTile.tile)
         {
             Parent.transform.position = closestTile.transform.position;
             transform.localPosition = Vector3.zero;
-            tile.haveTile = true;
+            tilePosition = closestTile;
+            tilePosition.tile = this;
+            Parent.transform.SetParent(tilePosition.transform);
+            AudioManager.Instance.PlayPlaceSound();
+           board.UpdateConditions();
         }
     }
 
     private void Awake()
     {
         board = GameObject.Find($"Board {boardIndex}").GetComponent<BoardFlip>();
-        tile = transform.parent.parent.GetComponent<TilePosition>();
+        tilePosition = transform.parent.parent.GetComponent<TilePosition>();
+        tilePosition.tile = this;
+        tileCondition = GetComponent<TileCondition>();
+        mainCamera = Camera.main;
     }
 
     void Update()
@@ -59,11 +73,11 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (followMouse == true)
         {
             Vector2 pos = Input.mousePosition;
-            Ray ray = Camera.main.ScreenPointToRay(pos);
+            Ray ray = mainCamera.ScreenPointToRay(pos);
             Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, Groundlayer);
             Parent.transform.position = hit.point;
 
-            transform.position = Parent.transform.position - Camera.main.transform.forward * 0.4f;
+            transform.position = Parent.transform.position - mainCamera.transform.forward * 0.4f;
 
             //mousePosition = Input.mousePosition;
             //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);

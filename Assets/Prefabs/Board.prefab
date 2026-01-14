@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7310426589428419103}
   - component: {fileID: 7559531271235764625}
   m_Layer: 0
-  m_Name: BoardFIXED
+  m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 2121293592053022495}
+    direction: 1
+  - neighbour: {fileID: 7237883109206392316}
+    direction: 1
+  - neighbour: {fileID: 6800771382122335223}
+    direction: 2
+  - neighbour: {fileID: 6138812384233508084}
+    direction: 2
+  - neighbour: {fileID: 4937126183473890154}
+    direction: 1
 --- !u!1 &1596863666624060911
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +166,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 7251314603723164637}
+    direction: 2
+  - neighbour: {fileID: 8647059316526824282}
+    direction: 1
+  - neighbour: {fileID: 854064546722649835}
+    direction: 2
+  - neighbour: {fileID: 6800771382122335223}
+    direction: 1
+  - neighbour: {fileID: 6138812384233508084}
+    direction: 1
+  - neighbour: {fileID: 4937126183473890154}
+    direction: 2
+  - neighbour: {fileID: 5177093221288884409}
+    direction: 1
+  - neighbour: {fileID: 2121293592053022495}
+    direction: 2
 --- !u!1 &3950733799428173989
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +229,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 5177093221288884409}
+    direction: 1
+  - neighbour: {fileID: 7237883109206392316}
+    direction: 2
+  - neighbour: {fileID: 6138812384233508084}
+    direction: 1
 --- !u!1 &5558167317010075668
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +282,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 8647059316526824282}
+    direction: 1
+  - neighbour: {fileID: 7237883109206392316}
+    direction: 2
+  - neighbour: {fileID: 6138812384233508084}
+    direction: 1
 --- !u!1 &5917834554399581064
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +335,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 7251314603723164637}
+    direction: 1
+  - neighbour: {fileID: 854064546722649835}
+    direction: 1
+  - neighbour: {fileID: 6800771382122335223}
+    direction: 2
+  - neighbour: {fileID: 7237883109206392316}
+    direction: 1
+  - neighbour: {fileID: 6138812384233508084}
+    direction: 2
 --- !u!1 &6554373707614999540
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +392,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 8647059316526824282}
+    direction: 1
+  - neighbour: {fileID: 6800771382122335223}
+    direction: 1
+  - neighbour: {fileID: 7237883109206392316}
+    direction: 2
 --- !u!1 &6665402802245307630
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +445,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 7251314603723164637}
+    direction: 1
+  - neighbour: {fileID: 8647059316526824282}
+    direction: 2
+  - neighbour: {fileID: 7237883109206392316}
+    direction: 1
+  - neighbour: {fileID: 4937126183473890154}
+    direction: 1
+  - neighbour: {fileID: 5177093221288884409}
+    direction: 2
 --- !u!1 &6977127045408269102
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +502,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 854064546722649835}
+    direction: 1
+  - neighbour: {fileID: 8647059316526824282}
+    direction: 2
+  - neighbour: {fileID: 7237883109206392316}
+    direction: 1
+  - neighbour: {fileID: 5177093221288884409}
+    direction: 2
+  - neighbour: {fileID: 2121293592053022495}
+    direction: 1
 --- !u!1 &7002368744171320333
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +656,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52835cc2ee329e47aa9baf66c9edaa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TilePosition
-  haveTile: 1
+  tile: {fileID: 0}
+  neighbours:
+  - neighbour: {fileID: 6800771382122335223}
+    direction: 1
+  - neighbour: {fileID: 7237883109206392316}
+    direction: 2
+  - neighbour: {fileID: 5177093221288884409}
+    direction: 1
 --- !u!1001 &446508637633007155
 PrefabInstance:
   m_ObjectHideFlags: 0

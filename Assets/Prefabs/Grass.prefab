@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7444565108299885423}
   - component: {fileID: 4125975478046051416}
   - component: {fileID: 4669217587577260811}
+  - component: {fileID: 7826158288376434875}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -107,6 +108,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Parent: {fileID: 809373894400934886}
+  boardIndex: 0
+  tilePosition: {fileID: 0}
+  tileCondition: {fileID: 0}
 --- !u!65 &4669217587577260811
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -128,6 +132,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0051249997, y: 0.005125001, z: 0.0016000009}
   m_Center: {x: 2.3283064e-10, y: -2.328307e-10, z: 0}
+--- !u!114 &7826158288376434875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800731443319114776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076932ff21c680a46b25ec6c5d8b58c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TileCondition
+  direction: 0
+  wantSomething: 0
+  description: Does Nothing
+  tileType: 0
+  tileIsHappy: 0
 --- !u!1 &8337934917157761808
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 809373894400934886}
   m_Layer: 0
-  m_Name: Tile Prefab
+  m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

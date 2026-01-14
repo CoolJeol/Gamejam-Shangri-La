@@ -21,40 +21,76 @@ public class BoardFlip : MonoBehaviour
             StartCoroutine(StartBoardFlip());
         }
 
-        IEnumerator StartBoardFlip()
+
+        if (Keyboard.current.qKey.wasPressedThisFrame && !LeanTween.isTweening())
         {
-            DoAnimation(Tiles[0]);
-            
-            yield return new WaitForSeconds(TIME);
-            
-            DoAnimation(Tiles[3]);
-            DoAnimation(Tiles[1]);
-            
-            yield return new WaitForSeconds(TIME);
-            
-            DoAnimation(Tiles[2]);
-            DoAnimation(Tiles[4]);
-            DoAnimation(Tiles[6]);
-            
-            yield return new WaitForSeconds(TIME);
-            
-            DoAnimation(Tiles[5]);
-            DoAnimation(Tiles[7]);
-            
-            yield return new WaitForSeconds(TIME);
-            
-            DoAnimation(Tiles[8]);
+            transform.LeanRotateY(transform.localEulerAngles.y + 90, 0.2f);
         }
+
+        if (Keyboard.current.eKey.wasPressedThisFrame && !LeanTween.isTweening())
+        {
+            transform.LeanRotateY(transform.localEulerAngles.y - 90, 0.2f);
+        }
+    }
+
+    IEnumerator StartBoardFlip()
+    {
+        yield return new WaitForSeconds(2f);
+        DoAnimation(Tiles[0]);
+
+        yield return new WaitForSeconds(TIME);
+
+        DoAnimation(Tiles[3]);
+        DoAnimation(Tiles[1]);
+
+        yield return new WaitForSeconds(TIME);
+
+        DoAnimation(Tiles[2]);
+        DoAnimation(Tiles[4]);
+        DoAnimation(Tiles[6]);
+
+        yield return new WaitForSeconds(TIME);
+
+        DoAnimation(Tiles[5]);
+        DoAnimation(Tiles[7]);
+
+        yield return new WaitForSeconds(TIME);
+
+        DoAnimation(Tiles[8]);
     }
 
     void DoAnimation(TilePosition tile)
     {
-        tile.transform.LeanMoveLocalY(0.6f, TIME).setOnComplete(()=> ResetYPosition(tile.transform));
+        tile.transform.LeanMoveLocalY(0.6f, TIME).setOnComplete(() => ResetYPosition(tile.transform));
         tile.transform.LeanRotateAround(new Vector3(1, 0, -1), 180f, TIME * 2f);
+        AudioManager.Instance.PlayFlipSound();
     }
 
     void ResetYPosition(Transform trans)
     {
         trans.LeanMoveLocalY(0, TIME);
+    }
+
+    public void UpdateConditions()
+    {
+        bool allTilesHappy = true;
+        int tileCount = 0;
+        foreach (var tile in Tiles)
+        {
+            if (tile.tile)
+            {
+                tileCount++;
+                tile.tile.tileCondition.CheckCondition();
+                if (!tile.tile.tileCondition.tileIsHappy)
+                {
+                    allTilesHappy = false;
+                }
+            }
+        }
+
+        if (allTilesHappy && tileCount == 9)
+        {
+            StartCoroutine(StartBoardFlip());
+        }
     }
 }
