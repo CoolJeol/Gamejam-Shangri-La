@@ -32,46 +32,53 @@ public class BoardManager : MonoBehaviour
                 tilePosition.tile.Init(board);
             }
         }
+
         yield return new WaitForSeconds(1);
         yield return BigBoardFlip();
         yield return new WaitForSeconds(0.7f);
         BoardFlyAway();
         yield return new WaitForSeconds(0.1f);
-        ZoomCamera();
+        ZoomInCamera();
         yield return new WaitForSeconds(0.7f);
-        StartCoroutine(boards[currentBoardIndex].StartBoardFlip());
         boards[currentBoardIndex].Init();
+        yield return boards[currentBoardIndex].StartBoardFlip();
     }
 
     private void Update()
     {
         if (Keyboard.current.qKey.wasPressedThisFrame && !LeanTween.isTweening())
         {
-            boards[currentBoardIndex].transform.LeanRotateY( boards[currentBoardIndex].transform.localEulerAngles.y + 90, 0.2f);
+            boards[currentBoardIndex].transform
+                .LeanRotateY(boards[currentBoardIndex].transform.localEulerAngles.y + 90, 0.2f);
         }
 
         if (Keyboard.current.eKey.wasPressedThisFrame && !LeanTween.isTweening())
         {
-            boards[currentBoardIndex].transform.LeanRotateY( boards[currentBoardIndex].transform.localEulerAngles.y - 90, 0.2f);
+            boards[currentBoardIndex].transform
+                .LeanRotateY(boards[currentBoardIndex].transform.localEulerAngles.y - 90, 0.2f);
         }
     }
 
-    private void ZoomCamera()
+    private void ZoomInCamera()
     {
         LeanTween.value(gameObject, 2.7f, 1f, 0.5f)
-            .setOnUpdate(val =>
-            {
-                mainCamera.orthographicSize = val;
-            });
+            .setOnUpdate(val => { mainCamera.orthographicSize = val; });
 
         LeanTween.scale(background, new Vector3(0.356f, 0.02225f, 0.2f) * 1.035f, 0.5f);
+    }
+
+    private void ZoomOutCamera()
+    {
+        LeanTween.value(gameObject, 1, 2.7f, 0.5f)
+            .setOnUpdate(val => { mainCamera.orthographicSize = val; });
+        LeanTween.scale(background, new Vector3(1f, 0.0625f, 0.5625f), 0.5f);
     }
 
     public void SwapBoards()
     {
         if (currentBoardIndex == boards.Count - 1)
         {
-            SendBoardAway(boards[^1].transform);
+            StartCoroutine(BoardsFlyIn());
             return;
         }
 
@@ -117,6 +124,31 @@ public class BoardManager : MonoBehaviour
 
         DoAnimation(boards[8]);
     }
+    
+    IEnumerator BigBoardFlip2()
+    {
+        DoAnimation(boards[1]);
+
+        yield return new WaitForSeconds(TIME);
+
+        DoAnimation(boards[4]);
+        DoAnimation(boards[2]);
+
+        yield return new WaitForSeconds(TIME);
+
+        DoAnimation(boards[3]);
+        DoAnimation(boards[8]);
+        DoAnimation(boards[6]);
+
+        yield return new WaitForSeconds(TIME);
+
+        DoAnimation(boards[5]);
+        DoAnimation(boards[7]);
+
+        yield return new WaitForSeconds(TIME);
+
+        DoAnimation(boards[0]);
+    }
 
     void DoAnimation(BoardFlip tile)
     {
@@ -140,5 +172,38 @@ public class BoardManager : MonoBehaviour
         boards[6].transform.LeanMove(new Vector3(-8, 0, 8), 0.2f);
         boards[7].transform.LeanMove(new Vector3(0, 0, 8), 0.2f);
         boards[8].transform.LeanMove(new Vector3(8, 0, 8), 0.2f);
+    }
+
+    IEnumerator BoardsFlyIn()
+    {
+        ZoomOutCamera();
+        boards[0].transform.position = new Vector3(10, 0, 10);
+        boards[1].transform.position = new Vector3(-10, 0, -10);
+        boards[2].transform.position = new Vector3(0, 0, -10);
+        boards[3].transform.position = new Vector3(10, 0, -10);
+        boards[4].transform.position = new Vector3(-10, 0, 0);
+        boards[5].transform.position = new Vector3(10, 0, 0);
+        boards[6].transform.position = new Vector3(-10, 0, 10);
+        boards[7].transform.position = new Vector3(0, 0, 10);
+
+        foreach (var board in boards)
+        {
+            board.transform.LeanRotate(new Vector3(0f, 90f, 180f), 0.2f);
+        }
+        yield return new WaitForSeconds(0.3f);
+
+        float time = 0.3f;
+        boards[0].transform.LeanMove(new Vector3(2, 0, 2), time).setEaseOutCubic();
+        boards[1].transform.LeanMove(new Vector3(-2, 0, -2), time).setEaseOutCubic();
+        boards[2].transform.LeanMove(new Vector3(0, 0, -2), time).setEaseOutCubic();
+        boards[3].transform.LeanMove(new Vector3(2, 0, -2), time).setEaseOutCubic();
+        boards[4].transform.LeanMove(new Vector3(-2, 0, 0), time).setEaseOutCubic();
+        boards[5].transform.LeanMove(new Vector3(2, 0, 0), time).setEaseOutCubic();
+        boards[6].transform.LeanMove(new Vector3(-2, 0, 2), time).setEaseOutCubic();
+        boards[7].transform.LeanMove(new Vector3(0, 0, 2), time).setEaseOutCubic();
+        
+        yield return new WaitForSeconds(1f);
+
+        StartCoroutine(BigBoardFlip2());
     }
 }

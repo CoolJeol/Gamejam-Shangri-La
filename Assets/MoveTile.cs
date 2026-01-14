@@ -9,7 +9,6 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     bool didHit;
     Vector3 CameraTarget;
     public Transform Parent;
-    public int boardIndex;
     private BoardFlip board;
     public TilePosition tilePosition;
     public TileCondition tileCondition;
@@ -21,7 +20,7 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     //obj pos - cam pos
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!canMoveTile)
+        if (!canMoveTile || LeanTween.isTweening(Parent.gameObject))
             return;
 
         Parent.SetParent(null);

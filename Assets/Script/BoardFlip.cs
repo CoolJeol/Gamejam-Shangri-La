@@ -14,7 +14,7 @@ public class BoardFlip : MonoBehaviour
         LeanTween.init();
     }
 
-    private void Start()
+    public void ActivateTiles()
     {
         foreach (var tilePosition in Tiles)
         {
@@ -67,6 +67,9 @@ public class BoardFlip : MonoBehaviour
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(Tiles[8]);
+        
+        yield return new WaitForSeconds(TIME);
+        ActivateTiles();
     }
 
     void DoAnimation(TilePosition tile)
