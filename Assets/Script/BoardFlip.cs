@@ -14,28 +14,35 @@ public class BoardFlip : MonoBehaviour
         LeanTween.init();
     }
 
+    private void Start()
+    {
+        foreach (var tilePosition in Tiles)
+        {
+            if (!tilePosition.tile)
+            {
+                return;
+            }
+
+            if (tilePosition.tile.tileCondition.tileType == TileType.Other)
+            {
+                tilePosition.tile.canMoveTile = false;
+                continue;
+            }
+
+            tilePosition.tile.canMoveTile = true;
+        }
+    }
+
     void Update()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             StartCoroutine(StartBoardFlip());
         }
-
-
-        if (Keyboard.current.qKey.wasPressedThisFrame && !LeanTween.isTweening())
-        {
-            transform.LeanRotateY(transform.localEulerAngles.y + 90, 0.2f);
-        }
-
-        if (Keyboard.current.eKey.wasPressedThisFrame && !LeanTween.isTweening())
-        {
-            transform.LeanRotateY(transform.localEulerAngles.y - 90, 0.2f);
-        }
     }
 
-    IEnumerator StartBoardFlip()
+    public IEnumerator StartBoardFlip()
     {
-        yield return new WaitForSeconds(2f);
         DoAnimation(Tiles[0]);
 
         yield return new WaitForSeconds(TIME);
@@ -90,7 +97,20 @@ public class BoardFlip : MonoBehaviour
 
         if (allTilesHappy && tileCount == 9)
         {
-            StartCoroutine(StartBoardFlip());
+            foreach (var tilePosition in Tiles)
+            {
+                tilePosition.tile.canMoveTile = false;
+            }
+
+            StartCoroutine(BoardDone());
         }
+    }
+
+    IEnumerator BoardDone()
+    {
+        yield return new WaitForSeconds(0.5f);
+        // Play Done Sound
+        yield return new WaitForSeconds(2.5f);
+        BoardManager.Instance.SwapBoards();
     }
 }

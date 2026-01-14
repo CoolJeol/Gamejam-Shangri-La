@@ -31,4 +31,10 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = audioClips[1];
         audioSource.Play();
     }
+    
+    public void PlayPickUpSound()
+    {
+        audioSource.clip = audioClips[2];
+        audioSource.Play();
+    }
 }

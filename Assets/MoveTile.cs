@@ -14,17 +14,23 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public TilePosition tilePosition;
     public TileCondition tileCondition;
 
+    public bool canMoveTile;
+
     Camera mainCamera;
-    
+
     //obj pos - cam pos
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!canMoveTile)
+            return;
+
         Parent.SetParent(null);
         followMouse = true;
         if (tilePosition)
         {
             tilePosition.tile = null;
             tilePosition = null;
+            AudioManager.Instance.PlayPickUpSound();
         }
 
         tileCondition.tileIsHappy = false;
@@ -55,17 +61,21 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             tilePosition.tile = this;
             Parent.transform.SetParent(tilePosition.transform);
             AudioManager.Instance.PlayPlaceSound();
-           board.UpdateConditions();
+            board.UpdateConditions();
         }
     }
 
     private void Awake()
     {
-        board = GameObject.Find($"Board {boardIndex}").GetComponent<BoardFlip>();
         tilePosition = transform.parent.parent.GetComponent<TilePosition>();
         tilePosition.tile = this;
         tileCondition = GetComponent<TileCondition>();
         mainCamera = Camera.main;
+    }
+
+    public void Init(BoardFlip boardFlip)
+    {
+        board = boardFlip;
     }
 
     void Update()
@@ -77,11 +87,7 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, Groundlayer);
             Parent.transform.position = hit.point;
 
-            transform.position = Parent.transform.position - mainCamera.transform.forward * 0.4f;
-
-            //mousePosition = Input.mousePosition;
-            //mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            //transform.position = Vector2.Lerp(transform.position, mousePosition, moveSpeed);
+            transform.position = Parent.transform.position - mainCamera.transform.forward * 1.5f;
         }
     }
 }

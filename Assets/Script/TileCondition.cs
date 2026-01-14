@@ -23,27 +23,22 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             tileIsHappy = true;
             return;
         }
-
-        if (wantSomething)
+        
+        tileIsHappy = !wantSomething;
+        
+        foreach (var neighbour in moveTile.tilePosition.neighbours)
         {
-            foreach (var neighbour in moveTile.tilePosition.neighbours)
+            if (neighbour.direction == direction &&
+                neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType != TileType.Nothing)
             {
-                if (neighbour.direction == direction &&
-                    neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType != TileType.Nothing)
+                if (wantSomething)
                 {
                     tileIsHappy = true;
                     return;
                 }
-            }
-        }
-        else
-        {
-            foreach (var neighbour in moveTile.tilePosition.neighbours)
-            {
-                if (neighbour.direction == direction &&
-                    neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType == TileType.Nothing)
+                else
                 {
-                    tileIsHappy = true;
+                    tileIsHappy = false;
                     return;
                 }
             }
