@@ -110,6 +110,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Parent: {fileID: 809373894400934886}
+  board: {fileID: 0}
   tilePosition: {fileID: 0}
   tileCondition: {fileID: 0}
   canMoveTile: 0
@@ -164,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 809373894400934886}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

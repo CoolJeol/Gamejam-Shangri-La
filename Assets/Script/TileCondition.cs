@@ -56,7 +56,7 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
         foreach (var neighbour in moveTile.tilePosition.neighbours)
         {
-            if (wantThisTileNextToIt != TileType.Nothing &&
+            if (wantThisTileNextToIt is not (TileType.Nothing or TileType.Well) &&
                 neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType == wantThisTileNextToIt)
             {
                 tileIsHappy = true;
@@ -64,7 +64,7 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             }
 
             if (direction.HasFlag(neighbour.direction) &&
-                neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType != TileType.Nothing)
+                neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType is not (TileType.Nothing or TileType.Well))
             {
                 if (wantSomething)
                 {
@@ -101,7 +101,7 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         var have = Shader.HasFloat("_Size");
         if (!have)
             return;
-        Size = 0.01f;
+        Size = 1.04f;
         Shader.SetFloat("_Size", Size);
     }
 
