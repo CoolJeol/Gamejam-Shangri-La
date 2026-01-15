@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class BoardManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class BoardManager : MonoBehaviour
     public int currentBoardIndex;
     public Transform boardStartPosition;
     public Transform boardEndPosition;
+    public Transform Ruins;
+    public Transform Castle;
 
     private Camera mainCamera;
     const float TIME = 0.1f;
@@ -33,6 +36,9 @@ public class BoardManager : MonoBehaviour
             }
         }
 
+        
+        yield return new WaitForSeconds(1);
+        Ruins.LeanMoveY(15, 1f);
         yield return new WaitForSeconds(1);
         yield return BigBoardFlip();
         yield return new WaitForSeconds(0.7f);
@@ -206,5 +212,12 @@ public class BoardManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(BigBoardFlip2());
+        yield return new WaitForSeconds(1f);
+        
+        Castle.LeanMoveY(0, 1f);
+        
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene(0);
     }
 }

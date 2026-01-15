@@ -7,13 +7,14 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public Direction direction;
     public bool wantSomething;
+    public TileType wantThisTileNextToIt;
     public CornerThing cornerType;
     public string description;
     public TileType tileType;
     public bool tileIsHappy;
     MoveTile moveTile;
     private Material Shader;
-
+    
 
     public enum CornerThing
     {
@@ -48,10 +49,18 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             return;
         }
 
+       
+
         tileIsHappy = !wantSomething;
 
         foreach (var neighbour in moveTile.tilePosition.neighbours)
         {
+            if (wantThisTileNextToIt != TileType.Nothing && neighbour.neighbour.tile.tileCondition.tileType == wantThisTileNextToIt)
+            {
+                tileIsHappy = true;
+                return;
+            }
+            
             if (direction.HasFlag(neighbour.direction) &&
                 neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType != TileType.Nothing)
             {
