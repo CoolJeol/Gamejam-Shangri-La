@@ -2,12 +2,17 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioSource audioSource;
     public List<AudioResource> audioClips;
+
+    public List<AudioClip> placedSound;
+    public List<AudioClip> HmmSound;
     
     private void Awake()
     {
@@ -21,9 +26,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Keyboard.current.hKey.wasPressedThisFrame)
+        {
+            PlayHmmSound();
+        }
+    }
+
     public void PlayPlaceSound()
     {
-        audioSource.resource = audioClips[0];
+        audioSource.clip = placedSound[Random.Range(0, placedSound.Count)];
         audioSource.Play();
     }
 
@@ -49,5 +62,20 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.resource = audioClips[4];
         audioSource.Play();
+    }
+
+    public void PlayHmmSound()
+    {
+        var index = Random.Range(0, 100);
+        if (index == 0)
+        {
+            audioSource.clip = HmmSound[^1];
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.clip = HmmSound[Random.Range(0, HmmSound.Count - 1)];
+            audioSource.Play();
+        }
     }
 }
