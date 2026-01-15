@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pavilion
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c43b3e87f3ab6b945ace0146cbce6b77, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -106,10 +110,22 @@ PrefabInstance:
       propertyPath: wantSomething
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3722045262237615223, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086725416174461696, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4086725416174461696, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5a9ac7f272d02e34c9b91ca2e8927b50, type: 2}
+    - target: {fileID: 4086725416174461696, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7fcf98af266160542856aec2271896e5, type: 2}
     - target: {fileID: 6115297702627953545, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.07919

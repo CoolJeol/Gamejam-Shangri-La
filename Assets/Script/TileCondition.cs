@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
 
 public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -11,6 +12,8 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public TileType tileType;
     public bool tileIsHappy;
     MoveTile moveTile;
+    private Material Shader;
+
 
     public enum CornerThing
     {
@@ -22,6 +25,7 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private void Awake()
     {
         moveTile = GetComponent<MoveTile>();
+        Shader = GetComponent<MeshRenderer>().materials[^1];
     }
 
     public virtual void CheckCondition()
@@ -68,11 +72,21 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerEnter(PointerEventData eventData)
     {
         TileDescription.Instance.SetDescription(description, transform.GetChild(0).name);
+
+        float Size;
+        Size = Shader.GetFloat("_Size");
+        Size = 0.01f;
+        Shader.SetFloat("_Size", Size);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         TileDescription.Instance.HideDescription();
+
+        float Size;
+        Size = Shader.GetFloat("_Size");
+        Size = 0;
+        Shader.SetFloat("_Size", Size);
     }
 }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8336356668027745433}
   - component: {fileID: 3290496886997253553}
   - component: {fileID: 3774469891650323207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ba775c314ae9214abc11f5ea0fe3013, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -257,9 +261,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -6555077718631631409, guid: 02932aa0dd8b05244a5f165ef1bb9c52, type: 3}
     - target: {fileID: 7444565108299885423, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444565108299885423, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5a9ac7f272d02e34c9b91ca2e8927b50, type: 2}
+    - target: {fileID: 7444565108299885423, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7fcf98af266160542856aec2271896e5, type: 2}
+    - target: {fileID: 7800731443319114776, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7800731443319114776, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -274,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7826158288376434875, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: description
-      value: This tile does not want any tile next to it.
+      value: This tile does not want any tile in its corners
       objectReference: {fileID: 0}
     - target: {fileID: 7826158288376434875, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: tileIsHappy
