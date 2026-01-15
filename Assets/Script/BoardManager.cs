@@ -37,7 +37,7 @@ public class BoardManager : MonoBehaviour
         }
 
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         Ruins.LeanMoveY(15, 1f);
         yield return new WaitForSeconds(1);
         yield return BigBoardFlip();
