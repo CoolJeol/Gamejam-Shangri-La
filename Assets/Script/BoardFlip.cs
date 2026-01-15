@@ -74,7 +74,7 @@ public class BoardFlip : MonoBehaviour
 
     void DoAnimation(TilePosition tile)
     {
-        tile.transform.LeanMoveLocalY(0.6f, TIME).setOnComplete(() => ResetYPosition(tile.transform));
+        tile.transform.LeanMoveLocalY(-0.6f, TIME).setOnComplete(() => ResetYPosition(tile.transform));
         tile.transform.LeanRotateAround(new Vector3(1, 0, -1), 180f, TIME * 2f);
         AudioManager.Instance.PlayFlipSound();
     }
