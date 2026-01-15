@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7444565108299885423, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800731443319114776, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7826158288376434875, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: tileType
       value: 4

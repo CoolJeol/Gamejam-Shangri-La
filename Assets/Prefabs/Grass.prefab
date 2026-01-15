@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4125975478046051416}
   - component: {fileID: 4669217587577260811}
   - component: {fileID: 7826158288376434875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,6 +71,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5a9ac7f272d02e34c9b91ca2e8927b50, type: 2}
+  - {fileID: 2100000, guid: 7fcf98af266160542856aec2271896e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -248,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9fdcf827440e7a34db661f3884a26c93, type: 3}
       propertyPath: m_Name
       value: Grass
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9fdcf827440e7a34db661f3884a26c93, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
