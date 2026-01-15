@@ -147,8 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileCondition
   direction: 0
   wantSomething: 0
+  wantThisTileNextToIt: 0
   cornerType: 0
-  description: This tile is in a cheerful spot, no matter the surroundings it finds
+  description: This tile is a cheerful spot, no matter the surroundings it finds
     itself in.
   tileType: 0
   tileIsHappy: 0
