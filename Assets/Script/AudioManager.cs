@@ -8,9 +8,10 @@ using Random = UnityEngine.Random;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    public AudioSource audioSource;
+    public List<AudioSource> audioSource;
     public List<AudioResource> audioClips;
 
+    private int audioSourceIndex;
     public List<AudioClip> placedSound;
     public List<AudioClip> HmmSound;
     
@@ -36,32 +37,37 @@ public class AudioManager : MonoBehaviour
 
     public void PlayPlaceSound()
     {
-        audioSource.clip = placedSound[Random.Range(0, placedSound.Count)];
-        audioSource.Play();
+        audioSource[audioSourceIndex].clip = placedSound[Random.Range(0, placedSound.Count)];
+        audioSource[audioSourceIndex].Play();
+        audioSourceIndex = (int) Mathf.Repeat(audioSourceIndex++, audioClips.Count);
     }
 
     public void PlayFlipSound()
     {
-        audioSource.resource = audioClips[1];
-        audioSource.Play();
+        audioSource[audioSourceIndex].resource = audioClips[1];
+        audioSource[audioSourceIndex].Play();
+        audioSourceIndex = (int) Mathf.Repeat(audioSourceIndex++, audioClips.Count);
     }
     
     public void PlayPickUpSound()
     {
-        audioSource.resource = audioClips[2];
-        audioSource.Play();
+        audioSource[audioSourceIndex].resource = audioClips[2];
+        audioSource[audioSourceIndex].Play();
+        audioSourceIndex = (int) Mathf.Repeat(audioSourceIndex++, audioClips.Count);
     }
     
     public void PlayBoardDoneSound()
     {
-        audioSource.resource = audioClips[3];
-        audioSource.Play();
+        audioSource[audioSourceIndex].resource = audioClips[3];
+        audioSource[audioSourceIndex].Play();
+        audioSourceIndex = (int) Mathf.Repeat(audioSourceIndex++, audioClips.Count);
     }
     
     public void PlaySlideBoardSound()
     {
-        audioSource.resource = audioClips[4];
-        audioSource.Play();
+        audioSource[audioSourceIndex].resource = audioClips[4];
+        audioSource[audioSourceIndex].Play();
+        audioSourceIndex = (int) Mathf.Repeat(audioSourceIndex++, audioClips.Count);
     }
 
     public void PlayHmmSound()
@@ -69,13 +75,15 @@ public class AudioManager : MonoBehaviour
         var index = Random.Range(0, 100);
         if (index == 0)
         {
-            audioSource.clip = HmmSound[^1];
-            audioSource.Play();
+            audioSource[audioSourceIndex].clip = HmmSound[^1];
+            audioSource[audioSourceIndex].Play();
+            audioSourceIndex = (int) Mathf.Repeat(audioSourceIndex++, audioClips.Count);
         }
         else
         {
-            audioSource.clip = HmmSound[Random.Range(0, HmmSound.Count - 1)];
-            audioSource.Play();
+            audioSource[audioSourceIndex].clip = HmmSound[Random.Range(0, HmmSound.Count - 1)];
+            audioSource[audioSourceIndex].Play();
+            audioSourceIndex = (int) Mathf.Repeat(audioSourceIndex++, audioClips.Count);
         }
     }
 }
