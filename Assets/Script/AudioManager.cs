@@ -43,4 +43,10 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = audioClips[3];
         audioSource.Play();
     }
+    
+    public void PlaySlideBoardSound()
+    {
+        audioSource.clip = audioClips[4];
+        audioSource.Play();
+    }
 }

@@ -94,6 +94,7 @@ public class BoardManager : MonoBehaviour
 
     public void SendBoardIn(Transform board)
     {
+        AudioManager.Instance.PlaySlideBoardSound();
         boards[currentBoardIndex].Init();
         board.position = boardStartPosition.position;
         board.LeanMove(Vector3.zero, 2).setEaseOutBounce()
