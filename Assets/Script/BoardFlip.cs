@@ -23,7 +23,7 @@ public class BoardFlip : MonoBehaviour
                 return;
             }
 
-            if (tilePosition.tile.tileCondition.tileType == TileType.Other)
+            if (tilePosition.tile.tileCondition.tileType == TileType.Well)
             {
                 tilePosition.tile.canMoveTile = false;
                 continue;

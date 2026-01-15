@@ -252,10 +252,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7286390253285194317, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6555077718631631409, guid: 02932aa0dd8b05244a5f165ef1bb9c52, type: 3}
     - target: {fileID: 7444565108299885423, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 0a94a1ba78f337743876c24e104612f8, type: 2}
+      objectReference: {fileID: 2100000, guid: 5a9ac7f272d02e34c9b91ca2e8927b50, type: 2}
     - target: {fileID: 7800731443319114776, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -266,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7826158288376434875, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: direction
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7826158288376434875, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: description
@@ -282,10 +286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8337934917157761808, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: m_Name
-      value: Lamp
+      value: Lamp Do
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5884062957589500431, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2897598376869060131, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       insertIndex: -1

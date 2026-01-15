@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &111621373407604591
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePlaced_4_{111621373407604591}
+  m_AudioClip: {fileID: 8300000, guid: 765ef8940e8fc564fa0b37c25f34c875, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &397762548590452129
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePlaced_1_{397762548590452129}
+  m_AudioClip: {fileID: 8300000, guid: 41531ac9bb73e9a4a812dc8802baf977, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1685785661151752763
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePlaced_2_{1685785661151752763}
+  m_AudioClip: {fileID: 8300000, guid: 2eb1425ef2234eb47bf7507b6a73a319, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlacedContainer
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 397762548590452129}
+  - {fileID: 1685785661151752763}
+  - {fileID: 7582088445663294098}
+  - {fileID: 111621373407604591}
+  - {fileID: 9173681519056613033}
+  m_AvoidRepeatingLast: 3
+  m_PlaybackMode: 2
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &7582088445663294098
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePlaced_3_{7582088445663294098}
+  m_AudioClip: {fileID: 8300000, guid: 4e7d766ddaff2dc43a05d7b403357011, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &9173681519056613033
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePlaced_Origin_{9173681519056613033}
+  m_AudioClip: {fileID: 8300000, guid: b0a6cf3e501c26d4dbbe8f7809e234db, type: 3}
+  m_Volume: 0
+  m_Enabled: 1

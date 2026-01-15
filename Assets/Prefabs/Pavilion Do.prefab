@@ -88,11 +88,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3193285479086390143, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: m_Name
-      value: Pavilion
+      value: Pavilion Do
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709425571540818132, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
+      propertyPath: tileType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3709425571540818132, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: direction
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3709425571540818132, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: description
@@ -100,12 +104,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3709425571540818132, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: wantSomething
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4086725416174461696, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3e53a310ecd567b418ade855b66f27bb, type: 2}
+      objectReference: {fileID: 2100000, guid: 5a9ac7f272d02e34c9b91ca2e8927b50, type: 2}
     - target: {fileID: 6115297702627953545, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.07919
@@ -150,6 +154,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4977434940429854825, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
     - {fileID: 946841510841467626, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
+    - {fileID: 1031037948829686368, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8633622345793115724, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       insertIndex: -1

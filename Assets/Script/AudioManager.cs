@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioSource audioSource;
-    public List<AudioClip> audioClips;
-
+    public List<AudioResource> audioClips;
+    
     private void Awake()
     {
         if (!Instance)
@@ -22,31 +23,31 @@ public class AudioManager : MonoBehaviour
 
     public void PlayPlaceSound()
     {
-        audioSource.clip = audioClips[0];
+        audioSource.resource = audioClips[0];
         audioSource.Play();
     }
 
     public void PlayFlipSound()
     {
-        audioSource.clip = audioClips[1];
+        audioSource.resource = audioClips[1];
         audioSource.Play();
     }
     
     public void PlayPickUpSound()
     {
-        audioSource.clip = audioClips[2];
+        audioSource.resource = audioClips[2];
         audioSource.Play();
     }
     
     public void PlayBoardDoneSound()
     {
-        audioSource.clip = audioClips[3];
+        audioSource.resource = audioClips[3];
         audioSource.Play();
     }
     
     public void PlaySlideBoardSound()
     {
-        audioSource.clip = audioClips[4];
+        audioSource.resource = audioClips[4];
         audioSource.Play();
     }
 }

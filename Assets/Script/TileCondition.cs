@@ -6,10 +6,18 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public Direction direction;
     public bool wantSomething;
+    public CornerThing cornerType;
     public string description;
     public TileType tileType;
     public bool tileIsHappy;
     MoveTile moveTile;
+
+    public enum CornerThing
+    {
+        Nothing,
+        WantCorner,
+        DontWantCorner
+    }
 
     private void Awake()
     {
@@ -18,17 +26,29 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public virtual void CheckCondition()
     {
-        if (tileType == TileType.Nothing)
+        if (tileType is TileType.Nothing or TileType.Well)
         {
             tileIsHappy = true;
             return;
         }
-        
+
+        if (moveTile.tilePosition.IsCorner && cornerType == CornerThing.DontWantCorner)
+        {
+            tileIsHappy = false;
+            return;
+        }
+
+        if (!moveTile.tilePosition.IsCorner && cornerType == CornerThing.WantCorner)
+        {
+            tileIsHappy = false;
+            return;
+        }
+
         tileIsHappy = !wantSomething;
-        
+
         foreach (var neighbour in moveTile.tilePosition.neighbours)
         {
-            if (neighbour.direction == direction &&
+            if (direction.HasFlag(neighbour.direction) &&
                 neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType != TileType.Nothing)
             {
                 if (wantSomething)
@@ -47,7 +67,7 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TileDescription.Instance.SetDescription(description, transform.parent.name);
+        TileDescription.Instance.SetDescription(description, transform.GetChild(0).name);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -61,5 +81,7 @@ public enum TileType
     Nothing,
     Lamp,
     Pavilion,
+    Stage,
+    Well,
     Other
 }

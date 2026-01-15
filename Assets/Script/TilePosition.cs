@@ -5,10 +5,10 @@ using UnityEngine;
 public class TilePosition : MonoBehaviour
 {
     public MoveTile tile;
-    
+    public bool IsCorner;
     public List<Neighbours> neighbours = new List<Neighbours>();
-    
-    
+
+
     [Serializable]
     public struct Neighbours
     {

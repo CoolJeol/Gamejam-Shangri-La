@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &495846628532941740
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePickUp_3_{495846628532941740}
+  m_AudioClip: {fileID: 8300000, guid: 6e82ebcca86a3dd49a5e1c45ab8c16a4, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &734567859920165009
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePickUp_Origin_{734567859920165009}
+  m_AudioClip: {fileID: 8300000, guid: 3e6ef7ceaf5127147b74eca6d0d06965, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2094828634349641622
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePickUp_2_{2094828634349641622}
+  m_AudioClip: {fileID: 8300000, guid: 3d01098bd3428a64aac14bd3e4c028cc, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2713980354995335285
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePickUp_4_{2713980354995335285}
+  m_AudioClip: {fileID: 8300000, guid: 16cb8f8b409ceef4e81ce8a2aad02466, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PickUpContainer
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: 0, y: 0}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 8092113226118010756}
+  - {fileID: 2094828634349641622}
+  - {fileID: 495846628532941740}
+  - {fileID: 2713980354995335285}
+  - {fileID: 734567859920165009}
+  m_AvoidRepeatingLast: 3
+  m_PlaybackMode: 2
+  m_TriggerMode: 0
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 2
+  m_VolumeRandomizationEnabled: 0
+  m_PitchRandomizationEnabled: 0
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &8092113226118010756
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilePickUp_1_{8092113226118010756}
+  m_AudioClip: {fileID: 8300000, guid: 632d20b648e20c24890d05c88cc9b0c9, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
