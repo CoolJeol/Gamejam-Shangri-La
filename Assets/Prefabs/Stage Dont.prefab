@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7826158288376434875, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: description
-      value: Something else
+      value: This tile does not want any tile around it.
       objectReference: {fileID: 0}
     - target: {fileID: 8337934917157761808, guid: 049d852c6b8413442a02c705a9e243ce, type: 3}
       propertyPath: m_Name

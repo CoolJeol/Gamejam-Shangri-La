@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3709425571540818132, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: description
-      value: Does not want something right beside it
+      value: This tile does not want any tile in its corners.
       objectReference: {fileID: 0}
     - target: {fileID: 3709425571540818132, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: wantSomething
