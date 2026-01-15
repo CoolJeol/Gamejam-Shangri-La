@@ -2,6 +2,7 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TileDescription : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class TileDescription : MonoBehaviour
     public GameObject descriptionObject;
     public TextMeshProUGUI objectNameText;
     public TextMeshProUGUI descriptionText;
+    public Image Image; 
 
     private void Awake()
     {
@@ -23,11 +25,12 @@ public class TileDescription : MonoBehaviour
         }
     }
 
-    public void SetDescription(string description, string objectName)
+    public void SetDescription(string description, string objectName, Sprite objectSprite)
     {
         descriptionObject.SetActive(true);
         descriptionText.text = description;
         objectNameText.text = objectName;
+        Image.sprite = objectSprite;
     }
     
     public void HideDescription()

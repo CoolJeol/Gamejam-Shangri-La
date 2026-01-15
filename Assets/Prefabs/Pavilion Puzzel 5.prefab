@@ -95,6 +95,10 @@ PrefabInstance:
       value: Pavilion Puzzel 5
       objectReference: {fileID: 0}
     - target: {fileID: 3709425571540818132, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 6982288373357110229, guid: 7dad7a50d27ac8e468fcdd2c12a24b89, type: 3}
+    - target: {fileID: 3709425571540818132, guid: e6ef823b9a9005d4b9add3d3c60b4d32, type: 3}
       propertyPath: tileType
       value: 2
       objectReference: {fileID: 0}

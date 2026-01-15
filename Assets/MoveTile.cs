@@ -9,7 +9,7 @@ public class MoveTile : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     bool didHit;
     Vector3 CameraTarget;
     public Transform Parent;
-    private BoardFlip board;
+    public BoardFlip board;
     public TilePosition tilePosition;
     public TileCondition tileCondition;
 

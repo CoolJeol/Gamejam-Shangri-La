@@ -8,6 +8,7 @@ public class BoardFlip : MonoBehaviour
 {
     public List<TilePosition> Tiles;
     private const float TIME = 0.1f;
+    public bool boardIsHappy = true;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class BoardFlip : MonoBehaviour
 
     public void ActivateTiles()
     {
+        boardIsHappy = false;
         foreach (var tilePosition in Tiles)
         {
             if (!tilePosition.tile)
@@ -67,7 +69,7 @@ public class BoardFlip : MonoBehaviour
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(Tiles[8]);
-        
+
         yield return new WaitForSeconds(TIME);
         ActivateTiles();
     }
@@ -108,6 +110,7 @@ public class BoardFlip : MonoBehaviour
                 tilePosition.tile.canMoveTile = false;
             }
 
+            boardIsHappy = true;
             StartCoroutine(BoardDone());
         }
     }

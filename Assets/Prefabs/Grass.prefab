@@ -154,6 +154,7 @@ MonoBehaviour:
     itself in.
   tileType: 0
   tileIsHappy: 0
+  sprite: {fileID: 3751281320025819660, guid: 205edc1b6d0595a4fb642226f73e512f, type: 3}
 --- !u!1 &8337934917157761808
 GameObject:
   m_ObjectHideFlags: 0

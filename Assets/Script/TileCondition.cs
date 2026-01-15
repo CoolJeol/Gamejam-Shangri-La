@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -14,7 +15,8 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public bool tileIsHappy;
     MoveTile moveTile;
     private Material Shader;
-    
+    public Sprite sprite;
+
 
     public enum CornerThing
     {
@@ -49,18 +51,18 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             return;
         }
 
-       
 
         tileIsHappy = !wantSomething;
 
         foreach (var neighbour in moveTile.tilePosition.neighbours)
         {
-            if (wantThisTileNextToIt != TileType.Nothing && neighbour.neighbour.tile.tileCondition.tileType == wantThisTileNextToIt)
+            if (wantThisTileNextToIt != TileType.Nothing &&
+                neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType == wantThisTileNextToIt)
             {
                 tileIsHappy = true;
                 return;
             }
-            
+
             if (direction.HasFlag(neighbour.direction) &&
                 neighbour.neighbour.tile && neighbour.neighbour.tile.tileCondition.tileType != TileType.Nothing)
             {
@@ -80,10 +82,25 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        TileDescription.Instance.SetDescription(description, transform.GetChild(0).name);
+        if (moveTile.board.boardIsHappy)
+        {
+            TileDescription.Instance.HideDescription();
+            
+            float Size2;
+            var have2 = Shader.HasFloat("_Size");
+            if (!have2)
+                return;
+            Size2 = 0;
+            Shader.SetFloat("_Size", Size2);
+            return;
+        }
+
+        TileDescription.Instance.SetDescription(description, transform.GetChild(0).name, sprite);
 
         float Size;
-        Size = Shader.GetFloat("_Size");
+        var have = Shader.HasFloat("_Size");
+        if (!have)
+            return;
         Size = 0.01f;
         Shader.SetFloat("_Size", Size);
     }
@@ -93,7 +110,9 @@ public class TileCondition : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         TileDescription.Instance.HideDescription();
 
         float Size;
-        Size = Shader.GetFloat("_Size");
+        var have = Shader.HasFloat("_Size");
+        if (!have)
+            return;
         Size = 0;
         Shader.SetFloat("_Size", Size);
     }

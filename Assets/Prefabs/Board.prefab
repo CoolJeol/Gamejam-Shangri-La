@@ -709,6 +709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Large Grass
       objectReference: {fileID: 0}
+    - target: {fileID: 5440093750694026452, guid: e870fd67aeaa6474e98f94fc0c5013b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
