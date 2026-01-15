@@ -147,7 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TileCondition
   direction: 0
   wantSomething: 0
-  description: Does Nothing
+  cornerType: 0
+  description: This tile is in a cheerful spot, no matter the surroundings it finds
+    itself in.
   tileType: 0
   tileIsHappy: 0
 --- !u!1 &8337934917157761808
