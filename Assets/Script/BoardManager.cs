@@ -36,7 +36,7 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-        
+
         yield return new WaitForSeconds(3);
         Ruins.LeanMoveY(15, 1f);
         yield return new WaitForSeconds(1);
@@ -110,56 +110,73 @@ public class BoardManager : MonoBehaviour
     IEnumerator BigBoardFlip()
     {
         DoAnimation(boards[1]);
+        AudioManager.Instance.PlayFlipSound();
+
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(boards[4]);
         DoAnimation(boards[2]);
+        AudioManager.Instance.PlayFlipSound();
+
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(boards[3]);
         DoAnimation(boards[0]);
         DoAnimation(boards[6]);
+        AudioManager.Instance.PlayFlipSound();
+
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(boards[5]);
         DoAnimation(boards[7]);
+        AudioManager.Instance.PlayFlipSound();
+
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(boards[8]);
+        AudioManager.Instance.PlayFlipSound();
     }
-    
+
     IEnumerator BigBoardFlip2()
     {
         DoAnimation(boards[1]);
+        AudioManager.Instance.PlayFlipSound();
+
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(boards[4]);
         DoAnimation(boards[2]);
+        AudioManager.Instance.PlayFlipSound();
+
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(boards[3]);
         DoAnimation(boards[8]);
         DoAnimation(boards[6]);
+        AudioManager.Instance.PlayFlipSound();
+
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(boards[5]);
         DoAnimation(boards[7]);
+        AudioManager.Instance.PlayFlipSound();
+
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(boards[0]);
+        AudioManager.Instance.PlayFlipSound();
     }
 
     void DoAnimation(BoardFlip tile)
     {
-        AudioManager.Instance.PlayFlipSound();
         tile.transform.LeanMoveLocalY(2f, TIME).setOnComplete(() => ResetYPosition(tile.transform));
         tile.transform.LeanRotateAround(new Vector3(1, 0, -1), 180f, TIME * 2f);
     }
@@ -197,6 +214,7 @@ public class BoardManager : MonoBehaviour
         {
             board.transform.LeanRotate(new Vector3(0f, 90f, 180f), 0.2f);
         }
+
         yield return new WaitForSeconds(0.3f);
 
         float time = 0.3f;
@@ -208,14 +226,14 @@ public class BoardManager : MonoBehaviour
         boards[5].transform.LeanMove(new Vector3(2, 0, 0), time).setEaseOutCubic();
         boards[6].transform.LeanMove(new Vector3(-2, 0, 2), time).setEaseOutCubic();
         boards[7].transform.LeanMove(new Vector3(0, 0, 2), time).setEaseOutCubic();
-        
+
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(BigBoardFlip2());
         yield return new WaitForSeconds(1f);
-        
+
         Castle.LeanMoveY(0, 1f);
-        
+
         yield return new WaitForSeconds(5f);
 
         SceneManager.LoadScene(0);

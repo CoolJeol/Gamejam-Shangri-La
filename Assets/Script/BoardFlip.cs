@@ -49,26 +49,36 @@ public class BoardFlip : MonoBehaviour
     public IEnumerator StartBoardFlip()
     {
         DoAnimation(Tiles[0]);
+        AudioManager.Instance.PlayFlipSound();
+        
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(Tiles[3]);
         DoAnimation(Tiles[1]);
+        AudioManager.Instance.PlayFlipSound();
+        
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(Tiles[2]);
         DoAnimation(Tiles[4]);
         DoAnimation(Tiles[6]);
+        AudioManager.Instance.PlayFlipSound();
+        
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(Tiles[5]);
         DoAnimation(Tiles[7]);
+        AudioManager.Instance.PlayFlipSound();
+        
 
         yield return new WaitForSeconds(TIME);
 
         DoAnimation(Tiles[8]);
+        AudioManager.Instance.PlayFlipSound();
+        
 
         yield return new WaitForSeconds(TIME);
         ActivateTiles();
@@ -78,7 +88,6 @@ public class BoardFlip : MonoBehaviour
     {
         tile.transform.LeanMoveLocalY(-0.6f, TIME).setOnComplete(() => ResetYPosition(tile.transform));
         tile.transform.LeanRotateAround(new Vector3(1, 0, -1), 180f, TIME * 2f);
-        AudioManager.Instance.PlayFlipSound();
     }
 
     void ResetYPosition(Transform trans)
